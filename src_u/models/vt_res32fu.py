@@ -507,7 +507,7 @@ class VisionTransformerres32fu(nn.Module):
         if x.size()[1] == 1:
             x = x.repeat(1,3,1,1)
         x, attn_weights, features = self.transformer(x)  # (B, n_patch, hidden)
-        x_cls = x[:, :4]#change
+        x_cls = x[:, :8]#change
         cls_logits = x_cls
         #return cls_logits.squeeze(-1),logits
         return attn_weights,cls_logits

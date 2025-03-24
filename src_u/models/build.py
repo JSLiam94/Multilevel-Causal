@@ -27,7 +27,7 @@ CONFIGS_ViT_seg = {
 
 
 class IDA33u(Module):
-    def __init__(self,backbone="resnet101",num_classes=80,pretrain=None,use_intervention=False,heavy=False):
+    def __init__(self,backbone="resnet101",num_classes=8,pretrain=None,use_intervention=False,heavy=False):
         super(IDA33u,self).__init__()
         if backbone=="resvit32fu":
             self.backbone = resvit32fu(num_classes,pretrain,large = True) 
@@ -81,7 +81,7 @@ class resvit32fu(Module):
         configs=CONFIGS_ViT_seg['R50-ViT-B_16']
         configs.patches.grid =(int(224/ 16), int(224/ 16))
         self.model = VisionTransformerres32fu(configs,img_size=224, num_classes=num_classes)
-        self.model.load_from(weights=np.load('R50+ViT-B_16.npz'))
+        #self.model.load_from(weights=np.load('R50+ViT-B_16.npz'))
         numFit =configs.hidden_size
         self.feat_dim = numFit
 

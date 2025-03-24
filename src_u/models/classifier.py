@@ -159,7 +159,7 @@ class Interventional_Classifier3fu2(nn.Module):
         p_cls=[]
         x_list =x
         for i in range(len(x_list)):
-            x_patch = x_list[i][:, 7:]
+            x_patch = x_list[i][:, 8:]
             HW = int(math.sqrt(x_patch.size(1)))
             x_patch = x_patch.transpose(1, 2)
             x_patch = x_patch.view(x_patch.size(0),x_patch.size(1),HW,HW)

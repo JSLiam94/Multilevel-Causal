@@ -492,7 +492,7 @@ class VisionTransformerres32fu(nn.Module):
                         unit.load_from(res_weight, n_block=bname, n_unit=uname)
 '''
 class VisionTransformerres32fu(nn.Module):
-    def __init__(self, config, img_size=224, num_classes=21843, zero_head=False, vis=False):
+    def __init__(self, config, img_size=512, num_classes=8, zero_head=False, vis=False):
         super(VisionTransformerres32fu, self).__init__()
         self.num_classes = num_classes
         self.zero_head = zero_head

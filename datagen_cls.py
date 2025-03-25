@@ -74,6 +74,15 @@ class ListDataset(torch.utils.data.Dataset):
         Returns:
           transformed_img: (PIL Image) transformed image.
         '''
+        # Crop the image to a square based on the shorter side
+        width, height = img.size
+        min_side = min(width, height)
+        left = (width - min_side) // 2
+        top = (height - min_side) // 2
+        right = left + min_side
+        bottom = top + min_side
+        img = img.crop((left, top, right, bottom))
+
         t = []
         if is_train:
             # Data augmentation for training

@@ -79,8 +79,8 @@ class resvit32fu(Module):
     def __init__(self,num_classes,pretrain,large=False):
         super(resvit32fu,self).__init__()
         configs=CONFIGS_ViT_seg['R50-ViT-B_16']
-        configs.patches.grid =(int(224/ 16), int(224/ 16))
-        self.model = VisionTransformerres32fu(configs,img_size=224, num_classes=num_classes)
+        configs.patches.grid =(int(512/ 16), int(512/ 16))
+        self.model = VisionTransformerres32fu(configs,img_size=512, num_classes=num_classes)
         #self.model.load_from(weights=np.load('R50+ViT-B_16.npz'))
         numFit =configs.hidden_size
         self.feat_dim = numFit
